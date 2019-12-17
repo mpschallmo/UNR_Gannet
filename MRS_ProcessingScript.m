@@ -76,6 +76,12 @@ for iF = 1:size(MRS_Directories,1)
     MRS_data = GannetSegment(MRS_data);
     save(fullfile(mrs_dir,'GannetSegment_output',['GannetData_' ...
         datestr(now,'yyyymmdd')]), 'MRS_data')
+    
+    % Gannet Quantify
+    MRS_data = GannetQuantify(MRS_data);
+    save(fullfile(mrs_dir,'GannetQuantify_output',['GannetData_' ...
+        datestr(now,'yyyymmdd')]), 'MRS_data')
+    
     MRS_struct{iF} = MRS_data; % output a single structure with data from all GABA scans being processing
     
     disp('Any key to continue.')
